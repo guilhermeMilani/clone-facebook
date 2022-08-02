@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page_three.dart';
 import 'package:flutter_application_1/page_two.dart';
 
 class PageOne extends StatefulWidget {
@@ -77,7 +78,7 @@ class _PageOneState extends State<PageOne> {
                 child: MaterialButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed(
-                      PageTwo.route,
+                      PageThree.route,
                       
                     );
                   },

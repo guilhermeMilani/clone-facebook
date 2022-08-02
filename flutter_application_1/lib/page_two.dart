@@ -23,7 +23,7 @@ class _PageTwoState extends State<PageTwo> {
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: 15,
           itemBuilder: (context, index) {
             return FractionallySizedBox(
               widthFactor: 0.8,

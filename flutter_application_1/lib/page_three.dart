@@ -1,60 +1,84 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import 'page_one.dart';
-
-class PageThree extends StatelessWidget {
+class PageThree extends StatefulWidget {
   const PageThree({Key? key}) : super(key: key);
-  static const route = '/page-three';
+  static const route = "/page-three";
+  @override
+  State<PageThree> createState() => _PageThreeState();
+}
+
+class _PageThreeState extends State<PageThree> {
   @override
   Widget build(BuildContext context) {
-    final valueMap = ModalRoute.of(context)!.settings.arguments as Map;
-    final fruta = valueMap['frutas'];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Page three'),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            FractionallySizedBox(
-              widthFactor: 0.3,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(PageOne.route);
-                },
-                child: const Text("Return page one"),
-              ),
-            ),
-            FractionallySizedBox(
-              widthFactor: 0.5,
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 15, bottom: 15),
+            child: FractionallySizedBox(
+              widthFactor: 0.8,
               child: Container(
+                height: 550,
                 decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.amber,
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: AutoSizeText(
-                        fruta,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
+                    Row(
+                      //Barra de usuario da publicação
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 70,
+                          width: 329, //arrumar
+                          decoration: const BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                          ),
+                          child: Row(
+                            children: const [
+                              CircleAvatar(
+                                radius: 22,
+                                backgroundColor: Colors.black,
+                              ),
+                              Text("Cristiano")
+                            ],
+                          ),
                         ),
-                        maxLines: 1,
-                        textAlign: TextAlign.center,
-                        minFontSize: 20,
-                      ),
+                      ],
+                    ),
+                    Image.asset(
+                      "images/CR7FEED.jpg",
+                      //fit: BoxFit.cover,
+                    ),
+                    Row(
+                      //Barra de comentarios, like, etc.
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 150,
+                          width: 329, //arrumar
+                          decoration: const BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
