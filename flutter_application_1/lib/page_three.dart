@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class PageThree extends StatefulWidget {
   const PageThree({Key? key}) : super(key: key);
@@ -16,62 +17,138 @@ class _PageThreeState extends State<PageThree> {
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 15),
             child: FractionallySizedBox(
-              widthFactor: 0.8,
+              widthFactor: 1,
               child: Container(
-                height: 550,
+                //height: 500,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: Colors.amber,
+                  border: Border.all(width: 1, color: Colors.grey.shade300),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      //Barra de usuario da publicação
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 70,
-                          width: 329, //arrumar
-                          decoration: const BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+                    Container(
+                      height: 70,
+                      // width: 32, //arrumar
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Row(
+                              children: [
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                CircleAvatar(
+                                  radius: 22,
+                                  backgroundImage:
+                                      Image.asset("images/cr7.jpg").image,
+                                ),
+                                const SizedBox(width: 10),
+                                const Text(
+                                  "cristiano",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                const Icon(
+                                  Icons.verified,
+                                  size: 16,
+                                  color: Colors.blue,
+                                ),
+                              ],
                             ),
                           ),
-                          child: Row(
-                            children: const [
-                              CircleAvatar(
-                                radius: 22,
-                                backgroundColor: Colors.black,
-                              ),
-                              Text("Cristiano")
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Row(
+                              children: const [
+                                Icon(Icons.more_horiz),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Image.asset(
                       "images/CR7FEED.jpg",
                       //fit: BoxFit.cover,
                     ),
-                    Row(
-                      //Barra de comentarios, like, etc.
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          height: 150,
-                          width: 329, //arrumar
-                          decoration: const BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
-                          ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
                         ),
-                      ],
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 10),
+                                    const Icon(Icons.favorite_border),
+                                    const SizedBox(width: 10),
+                                    const Icon(Icons.sms_outlined),
+                                    const SizedBox(width: 10),
+                                    Transform.rotate(
+                                      angle: -math.pi / 4,
+                                      child: const Icon(Icons.send_outlined),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Icon(Icons.bookmark_outline_sharp),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  "4.654.897 curtidas",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: const [
+                                Text(
+                                  "cristiano",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  "Ferias siiiuuuuuu",
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
